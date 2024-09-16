@@ -3,9 +3,11 @@ package com.inders.dsa.datastructures.queue;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-public class ListQueue<T> implements Iterable<T>, Queue<T> {
+public final class ListQueue<T> implements Iterable<T>, Queue<T> {
 
     private final LinkedList<T> list = new LinkedList<>();
+
+    public ListQueue() {}
 
     @Override
     public int size() {
