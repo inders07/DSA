@@ -1,15 +1,11 @@
-package com.inders.dsa.datastructures.stack;
+package com.inders.dsa.datastructures.queue;
 
-
-import java.util.EmptyStackException;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-public final class ListStack<T> implements Iterable<T>, Stack<T> {
+public class ListQueue<T> implements Iterable<T>, Queue<T> {
 
     private final LinkedList<T> list = new LinkedList<>();
-
-    public ListStack() {}
 
     @Override
     public int size() {
@@ -22,24 +18,24 @@ public final class ListStack<T> implements Iterable<T>, Stack<T> {
     }
 
     @Override
-    public void push(T elem) {
-        list.addLast(elem);
-    }
-
-    @Override
-    public T pop() {
-        if (isEmpty()) {
-            throw new EmptyStackException();
-        }
-        return list.removeLast();
-    }
-
-    @Override
     public T peek() {
         if (isEmpty()) {
-            throw new EmptyStackException();
+            throw new RuntimeException("Queue Empty");
         }
-        return list.peekLast();
+        return list.peekFirst();
+    }
+
+    @Override
+    public T poll() {
+        if (isEmpty()) {
+            throw new RuntimeException("Queue Empty");
+        }
+        return list.pollFirst();
+    }
+
+    @Override
+    public void offer(T elem) {
+        list.addLast(elem);
     }
 
     @Override
