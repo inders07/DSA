@@ -13,14 +13,14 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class BinaryHeapTest {
+public class IndexedBinaryHeapTest {
 
     private static final int LOOPS = 100;
     private static final int MAX_SZ = 100;
 
     @Test
     public void testEmpty() {
-        BinaryHeap<Integer> q = new BinaryHeap<>();
+        IndexedBinaryHeap<Integer> q = new IndexedBinaryHeap<>();
         assertEquals(0, q.size());
         assertTrue(q.isEmpty());
         assertNull(q.poll());
@@ -30,7 +30,7 @@ public class BinaryHeapTest {
     @Test
     public void testHeapProperty() {
 
-        BinaryHeap<Integer> q = new BinaryHeap<>();
+        IndexedBinaryHeap<Integer> q = new IndexedBinaryHeap<>();
         Integer[] nums = {3, 2, 5, 6, 7, 9, 4, 8, 1};
 
         // Try manually creating heap
@@ -44,7 +44,7 @@ public class BinaryHeapTest {
         q.clear();
 
         // Try heapify constructor
-        q = new BinaryHeap<>(nums);
+        q = new IndexedBinaryHeap<>(nums);
         for (int i = 1; i <= 9; i++) {
             assertEquals(i, q.poll());
         }
@@ -56,7 +56,7 @@ public class BinaryHeapTest {
         for (int i = 1; i < LOOPS; i++) {
 
             Integer[] lst = genRandArray(i);
-            BinaryHeap<Integer> pq = new BinaryHeap<>(lst);
+            IndexedBinaryHeap<Integer> pq = new IndexedBinaryHeap<>(lst);
 
             PriorityQueue<Integer> pq2 = new PriorityQueue<>(i);
             pq2.addAll(Arrays.asList(lst));
@@ -71,9 +71,9 @@ public class BinaryHeapTest {
     @Test
     public void testClear() {
 
-        BinaryHeap<String> q;
+        IndexedBinaryHeap<String> q;
         String[] strs = {"aa", "bb", "cc", "dd", "ee"};
-        q = new BinaryHeap<>(strs);
+        q = new IndexedBinaryHeap<>(strs);
         q.clear();
         assertEquals(0, q.size());
         assertTrue(q.isEmpty());
@@ -83,7 +83,7 @@ public class BinaryHeapTest {
     public void testContainment() {
 
         String[] strs = {"aa", "bb", "cc", "dd", "ee"};
-        BinaryHeap<String> q = new BinaryHeap<>(strs);
+        IndexedBinaryHeap<String> q = new IndexedBinaryHeap<>(strs);
         q.remove("aa");
         assertFalse(q.contains("aa"));
         q.remove("bb");
@@ -103,7 +103,7 @@ public class BinaryHeapTest {
 
             List<Integer> randNums = genRandList(100);
             PriorityQueue<Integer> PQ = new PriorityQueue<>();
-            BinaryHeap<Integer> pq = new BinaryHeap<>();
+            IndexedBinaryHeap<Integer> pq = new IndexedBinaryHeap<>();
             for (int j = 0; j < randNums.size(); j++) {
                 pq.add(randNums.get(j));
                 PQ.add(randNums.get(j));
@@ -124,7 +124,7 @@ public class BinaryHeapTest {
 
         assertEquals(removeOrder.length, in.length);
 
-        BinaryHeap<Integer> pq = new BinaryHeap<>(in);
+        IndexedBinaryHeap<Integer> pq = new IndexedBinaryHeap<>(in);
         PriorityQueue<Integer> PQ = new PriorityQueue<>();
         for (int value : in) PQ.offer(value);
 
@@ -171,7 +171,7 @@ public class BinaryHeapTest {
     public void testRemovingDuplicates() {
 
         Integer[] in = new Integer[] {2, 7, 2, 11, 7, 13, 2};
-        BinaryHeap<Integer> pq = new BinaryHeap<>(in);
+        IndexedBinaryHeap<Integer> pq = new IndexedBinaryHeap<>(in);
 
         assertEquals(2, pq.peek());
         pq.add(3);
@@ -194,7 +194,7 @@ public class BinaryHeapTest {
             int sz = i;
             List<Integer> randNums = genRandList(sz);
             PriorityQueue<Integer> pq1 = new PriorityQueue<>();
-            BinaryHeap<Integer> pq2 = new BinaryHeap<>();
+            IndexedBinaryHeap<Integer> pq2 = new IndexedBinaryHeap<>();
 
             // Add all the elements to both priority queues
             for (Integer value : randNums) {
@@ -228,7 +228,7 @@ public class BinaryHeapTest {
             int sz = i;
             List<Integer> randNums = genRandList(sz);
             PriorityQueue<Integer> pq1 = new PriorityQueue<>();
-            BinaryHeap<Integer> pq2 = new BinaryHeap<>();
+            IndexedBinaryHeap<Integer> pq2 = new IndexedBinaryHeap<>();
 
             // Add all the elements to both priority queues
             for (Integer value : randNums) {
@@ -261,7 +261,7 @@ public class BinaryHeapTest {
         List<Integer> SZs = genUniqueRandList(LOOPS);
 
         PriorityQueue<Integer> PQ = new PriorityQueue<>();
-        BinaryHeap<Integer> pq = new BinaryHeap<>();
+        IndexedBinaryHeap<Integer> pq = new IndexedBinaryHeap<>();
 
         for (int sz : SZs) {
 
@@ -278,7 +278,7 @@ public class BinaryHeapTest {
 
             for (int i = 0; i < sz / 2; i++) {
 
-                // Sometimes add a new number into the BinaryHeap
+                // Sometimes add a new number into the IndexedBinaryHeap
                 if (0.25 < Math.random()) {
                     int randNum = (int) (Math.random() * 10000);
                     PQ.add(randNum);
@@ -328,3 +328,4 @@ public class BinaryHeapTest {
         return lst;
     }
 }
+

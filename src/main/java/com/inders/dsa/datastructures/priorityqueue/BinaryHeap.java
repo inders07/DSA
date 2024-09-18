@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-public final class BinaryHeap<T extends Comparable<T>> {
+public final class BinaryHeap<T extends Comparable<T>> implements Heap<T> {
 
     // list to store elements in the heap
     private List<T> heap;
@@ -46,14 +46,17 @@ public final class BinaryHeap<T extends Comparable<T>> {
         }
     }
 
+    @Override
     public int size() {
         return heap.size();
     }
 
+    @Override
     public boolean isEmpty() {
         return size() == 0;
     }
 
+    @Override
     public void clear() {
         heap.clear();
     }
@@ -61,6 +64,7 @@ public final class BinaryHeap<T extends Comparable<T>> {
     // returns root element of the heap or
     // with lowest priority in this priority queue
     // null is returned if heap is empty
+    @Override
     public T peek() {
         if (isEmpty()) {
             return null;
@@ -69,6 +73,7 @@ public final class BinaryHeap<T extends Comparable<T>> {
     }
 
     // removes and returns root element of the heap
+    @Override
     public T poll() {
         if (isEmpty()) {
             return null;
@@ -76,11 +81,13 @@ public final class BinaryHeap<T extends Comparable<T>> {
         return removeAt(0);
     }
 
+    @Override
     public boolean contains(T elem) {
         return heap.contains(elem);
     }
 
     // add an element to the heap
+    @Override
     public void add(T elem) {
         if (elem == null) {
             throw new IllegalArgumentException();
@@ -90,6 +97,7 @@ public final class BinaryHeap<T extends Comparable<T>> {
     }
 
     // remove first occurrence of an element from the heap
+    @Override
     public boolean remove(T elem) {
         if (elem == null) {
             return false;
