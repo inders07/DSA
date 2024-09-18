@@ -62,7 +62,7 @@ public final class BinaryHeap<T extends Comparable<T>> implements Heap<T> {
     }
 
     // returns root element of the heap or
-    // with lowest priority in this priority queue
+    // with the lowest priority in this priority queue
     // null is returned if heap is empty
     @Override
     public T peek() {
