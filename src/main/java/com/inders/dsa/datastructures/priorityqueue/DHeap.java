@@ -12,7 +12,7 @@ public class DHeap<T extends Comparable<T>> implements Heap<T> {
 
     public DHeap(int degree, int maxNodes) {
         d = Math.max(2, degree);
-        n = Math.max(degree, maxNodes);
+        n = Math.max(degree + 1, maxNodes);
 
         heap = (T[]) new Comparable[n];
         child = new int[n];
