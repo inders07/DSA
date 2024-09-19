@@ -13,14 +13,14 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class IndexedBinaryHeapTest {
+public class QuickRemovalsBinaryHeapTest {
 
     private static final int LOOPS = 100;
     private static final int MAX_SZ = 100;
 
     @Test
     public void testEmpty() {
-        IndexedBinaryHeap<Integer> q = new IndexedBinaryHeap<>();
+        QuickRemovalsBinaryHeap<Integer> q = new QuickRemovalsBinaryHeap<>();
         assertEquals(0, q.size());
         assertTrue(q.isEmpty());
         assertNull(q.poll());
@@ -30,7 +30,7 @@ public class IndexedBinaryHeapTest {
     @Test
     public void testHeapProperty() {
 
-        IndexedBinaryHeap<Integer> q = new IndexedBinaryHeap<>();
+        QuickRemovalsBinaryHeap<Integer> q = new QuickRemovalsBinaryHeap<>();
         Integer[] nums = {3, 2, 5, 6, 7, 9, 4, 8, 1};
 
         // Try manually creating heap
@@ -44,7 +44,7 @@ public class IndexedBinaryHeapTest {
         q.clear();
 
         // Try heapify constructor
-        q = new IndexedBinaryHeap<>(nums);
+        q = new QuickRemovalsBinaryHeap<>(nums);
         for (int i = 1; i <= 9; i++) {
             assertEquals(i, q.poll());
         }
@@ -56,7 +56,7 @@ public class IndexedBinaryHeapTest {
         for (int i = 1; i < LOOPS; i++) {
 
             Integer[] lst = genRandArray(i);
-            IndexedBinaryHeap<Integer> pq = new IndexedBinaryHeap<>(lst);
+            QuickRemovalsBinaryHeap<Integer> pq = new QuickRemovalsBinaryHeap<>(lst);
 
             PriorityQueue<Integer> pq2 = new PriorityQueue<>(i);
             pq2.addAll(Arrays.asList(lst));
@@ -71,9 +71,9 @@ public class IndexedBinaryHeapTest {
     @Test
     public void testClear() {
 
-        IndexedBinaryHeap<String> q;
+        QuickRemovalsBinaryHeap<String> q;
         String[] strs = {"aa", "bb", "cc", "dd", "ee"};
-        q = new IndexedBinaryHeap<>(strs);
+        q = new QuickRemovalsBinaryHeap<>(strs);
         q.clear();
         assertEquals(0, q.size());
         assertTrue(q.isEmpty());
@@ -83,7 +83,7 @@ public class IndexedBinaryHeapTest {
     public void testContainment() {
 
         String[] strs = {"aa", "bb", "cc", "dd", "ee"};
-        IndexedBinaryHeap<String> q = new IndexedBinaryHeap<>(strs);
+        QuickRemovalsBinaryHeap<String> q = new QuickRemovalsBinaryHeap<>(strs);
         q.remove("aa");
         assertFalse(q.contains("aa"));
         q.remove("bb");
@@ -103,7 +103,7 @@ public class IndexedBinaryHeapTest {
 
             List<Integer> randNums = genRandList(100);
             PriorityQueue<Integer> PQ = new PriorityQueue<>();
-            IndexedBinaryHeap<Integer> pq = new IndexedBinaryHeap<>();
+            QuickRemovalsBinaryHeap<Integer> pq = new QuickRemovalsBinaryHeap<>();
             for (int j = 0; j < randNums.size(); j++) {
                 pq.add(randNums.get(j));
                 PQ.add(randNums.get(j));
@@ -124,7 +124,7 @@ public class IndexedBinaryHeapTest {
 
         assertEquals(removeOrder.length, in.length);
 
-        IndexedBinaryHeap<Integer> pq = new IndexedBinaryHeap<>(in);
+        QuickRemovalsBinaryHeap<Integer> pq = new QuickRemovalsBinaryHeap<>(in);
         PriorityQueue<Integer> PQ = new PriorityQueue<>();
         for (int value : in) PQ.offer(value);
 
@@ -171,7 +171,7 @@ public class IndexedBinaryHeapTest {
     public void testRemovingDuplicates() {
 
         Integer[] in = new Integer[] {2, 7, 2, 11, 7, 13, 2};
-        IndexedBinaryHeap<Integer> pq = new IndexedBinaryHeap<>(in);
+        QuickRemovalsBinaryHeap<Integer> pq = new QuickRemovalsBinaryHeap<>(in);
 
         assertEquals(2, pq.peek());
         pq.add(3);
@@ -194,7 +194,7 @@ public class IndexedBinaryHeapTest {
             int sz = i;
             List<Integer> randNums = genRandList(sz);
             PriorityQueue<Integer> pq1 = new PriorityQueue<>();
-            IndexedBinaryHeap<Integer> pq2 = new IndexedBinaryHeap<>();
+            QuickRemovalsBinaryHeap<Integer> pq2 = new QuickRemovalsBinaryHeap<>();
 
             // Add all the elements to both priority queues
             for (Integer value : randNums) {
@@ -228,7 +228,7 @@ public class IndexedBinaryHeapTest {
             int sz = i;
             List<Integer> randNums = genRandList(sz);
             PriorityQueue<Integer> pq1 = new PriorityQueue<>();
-            IndexedBinaryHeap<Integer> pq2 = new IndexedBinaryHeap<>();
+            QuickRemovalsBinaryHeap<Integer> pq2 = new QuickRemovalsBinaryHeap<>();
 
             // Add all the elements to both priority queues
             for (Integer value : randNums) {
@@ -261,7 +261,7 @@ public class IndexedBinaryHeapTest {
         List<Integer> SZs = genUniqueRandList(LOOPS);
 
         PriorityQueue<Integer> PQ = new PriorityQueue<>();
-        IndexedBinaryHeap<Integer> pq = new IndexedBinaryHeap<>();
+        QuickRemovalsBinaryHeap<Integer> pq = new QuickRemovalsBinaryHeap<>();
 
         for (int sz : SZs) {
 

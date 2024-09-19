@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class IndexedBinaryHeap<T extends Comparable<T>> implements Heap<T> {
+public class QuickRemovalsBinaryHeap<T extends Comparable<T>> implements Heap<T> {
 
     // list to store elements in the heap
     private List<T> heap;
@@ -18,17 +18,17 @@ public class IndexedBinaryHeap<T extends Comparable<T>> implements Heap<T> {
     // this will cost us some additional linear memory O(n)
     private final Map<T, TreeSet<Integer>> indexMap = new HashMap<>();
 
-    public IndexedBinaryHeap() {
+    public QuickRemovalsBinaryHeap() {
         this(1);
     }
 
     // initialize heap with a certain capacity
-    public IndexedBinaryHeap(int capacity) {
+    public QuickRemovalsBinaryHeap(int capacity) {
         heap = new ArrayList<>(capacity);
     }
 
     // construct a heap using heapify in O(n) linear time
-    public IndexedBinaryHeap(T[] elements) {
+    public QuickRemovalsBinaryHeap(T[] elements) {
         int capacity = elements.length;
         heap = new ArrayList<>(capacity);
 
@@ -44,7 +44,7 @@ public class IndexedBinaryHeap<T extends Comparable<T>> implements Heap<T> {
         }
     }
 
-    public IndexedBinaryHeap(Collection<T> elements) {
+    public QuickRemovalsBinaryHeap(Collection<T> elements) {
         int capacity = elements.size();
         heap = new ArrayList<>(capacity);
 
