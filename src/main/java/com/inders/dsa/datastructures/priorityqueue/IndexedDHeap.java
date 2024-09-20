@@ -11,25 +11,25 @@ public class IndexedDHeap<T extends Comparable<T>> {
     private int size;
 
     // max number of nodes that this heap can have
-    private int n;
+    private final int n;
 
     // degree of each node of heap(number of children)
-    private int d;
+    private final int d;
 
     // starting index of child for each parent node
-    private int[] child;
+    private final int[] child;
 
     // parent node index for each node
-    private int[] parent;
+    private final int[] parent;
 
     // position map(pm) which stores node index in heap for each ki(key index)
-    private int[] pm;
+    private final int[] pm;
 
     // inverse map(im) which is inverse of pm and stores ki(key index) for each node index
-    private int[] im;
+    private final int[] im;
 
     // contains value for each key index(ki)
-    private Object[] values;
+    private final Object[] values;
 
     public IndexedDHeap(int degree, int maxNodes) {
         if (maxNodes <= 0) {

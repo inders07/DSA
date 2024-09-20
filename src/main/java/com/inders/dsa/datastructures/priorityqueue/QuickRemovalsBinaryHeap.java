@@ -11,7 +11,7 @@ import java.util.TreeSet;
 public class QuickRemovalsBinaryHeap<T extends Comparable<T>> implements Heap<T> {
 
     // list to store elements in the heap
-    private List<T> heap;
+    private final List<T> heap;
 
     // hash map to store indexes for each element. This will make removals
     // from O(n) to O(log(n)) and O(1) containment check directly on the map.

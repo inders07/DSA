@@ -8,7 +8,7 @@ import java.util.List;
 public final class BinaryHeap<T extends Comparable<T>> implements Heap<T> {
 
     // list to store elements in the heap
-    private List<T> heap;
+    private final List<T> heap;
 
     public BinaryHeap() {
         this(1);

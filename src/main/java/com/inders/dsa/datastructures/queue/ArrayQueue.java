@@ -6,7 +6,7 @@ public final class ArrayQueue<T> implements Iterable<T>, Queue<T> {
 
     private int front;
     private int rear;
-    private Object[] data;
+    private final Object[] data;
 
     public ArrayQueue(int capacity) {
         data = new Object[capacity + 1];

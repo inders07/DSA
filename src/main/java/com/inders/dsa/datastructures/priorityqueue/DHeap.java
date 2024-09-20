@@ -3,16 +3,16 @@ package com.inders.dsa.datastructures.priorityqueue;
 @SuppressWarnings("unchecked")
 public class DHeap<T extends Comparable<T>> implements Heap<T> {
 
-    private T[] heap; // array to store heap elements
-    private int d; // degree of the DHeap
-    private int n; // capacity of the static array used for heap
+    private final T[] heap; // array to store heap elements
+    private final int d; // degree of the DHeap
     private int size; // number of elements in the heap
-    private int[] child; // starting index of children of each node
-    private int[] parent; // parent index of each node
+    private final int[] child; // starting index of children of each node
+    private final int[] parent; // parent index of each node
 
     public DHeap(int degree, int maxNodes) {
         d = Math.max(2, degree);
-        n = Math.max(degree + 1, maxNodes);
+        // capacity of the static array used for heap
+        int n = Math.max(degree + 1, maxNodes);
 
         heap = (T[]) new Comparable[n];
         child = new int[n];
