@@ -144,6 +144,15 @@ public class IndexedDHeap<T extends Comparable<T>> {
         }
     }
 
+    @Override
+    public String toString() {
+        List<Integer> lst = new ArrayList<>(size);
+        for (int i = 0; i < size; i++) {
+            lst.add(im[i]);
+        }
+        return lst.toString();
+    }
+
     private void swim(int i) {
         while (less(i, parent[i])) {
             swap(parent[i], i);
@@ -183,15 +192,6 @@ public class IndexedDHeap<T extends Comparable<T>> {
     // returns true if obj1 is less than obj2
     private boolean less(Object obj1, Object obj2) {
         return ((Comparable<? super T>) obj1).compareTo((T) obj2) < 0;
-    }
-
-    @Override
-    public String toString() {
-        List<Integer> lst = new ArrayList<>(size);
-        for (int i = 0; i < size; i++) {
-            lst.add(im[i]);
-        }
-        return lst.toString();
     }
 
     // swap two nodes with index i and j

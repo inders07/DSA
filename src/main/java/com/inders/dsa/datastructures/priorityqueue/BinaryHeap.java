@@ -154,7 +154,7 @@ public final class BinaryHeap<T extends Comparable<T>> implements Heap<T> {
             int right = 2 * k + 2;
             int smallest = left; // assume left node is the smallest
 
-            // check is right is smaller
+            // check if right is smaller
             if (right < size && less(right, smallest)) {
                 smallest = right;
             }
@@ -164,7 +164,7 @@ public final class BinaryHeap<T extends Comparable<T>> implements Heap<T> {
                 break;
             }
 
-            // Move down the tree with smallest node
+            // Move down the tree with the smallest node
             swap(k, smallest);
             k = smallest;
         }

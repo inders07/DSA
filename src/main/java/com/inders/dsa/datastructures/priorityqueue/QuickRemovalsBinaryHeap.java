@@ -49,7 +49,9 @@ public class QuickRemovalsBinaryHeap<T extends Comparable<T>> implements Heap<T>
         heap = new ArrayList<>(capacity);
 
         // add all elements to the heap
-        heap.addAll(elements);
+        for (T elem : elements) {
+            add(elem);
+        }
 
         // heapify process : http://www.cs.umd.edu/~meesh/351/mount/lectures/lect14-heapsort-analysis-part.pdf
         for (int i = Math.max(0, (capacity / 2) - 1); i >= 0; i--) {

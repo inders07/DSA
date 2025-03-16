@@ -80,12 +80,12 @@ public final class BinarySearchTree<T extends Comparable<T>> {
             // found the node to be removed
 
             if (root.left == null) {
-                // if right subtree is null or both right and left subtrees are null
-                // then simply swap the current node with the left child
+                // if left subtree is null or both right and left subtrees are null
+                // then simply swap the current node with the right child
                 return root.right;
             } else if (root.right == null) {
-                // if left subtree is null
-                // then simply swap the current node with the right child
+                // if right subtree is null
+                // then simply swap the current node with the left child
                 return root.left;
             } else {
                 // here both left and right subtrees are present so either
