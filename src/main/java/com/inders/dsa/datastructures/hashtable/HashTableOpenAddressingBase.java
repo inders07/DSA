@@ -44,7 +44,9 @@ public abstract class HashTableOpenAddressingBase<K, V> implements HashTable<K, 
         }
         this.loadFactor = loadFactor;
         this.capacity = Math.max(DEFAULT_CAPACITY, capacity);
+        adjustCapacity();
         threshold = (int) (this.capacity * this.loadFactor);
+
         keys = (K[]) (new Object[this.capacity]);
         values = (V[]) (new Object[this.capacity]);
     }
