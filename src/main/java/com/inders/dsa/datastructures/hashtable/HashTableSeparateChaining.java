@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+@SuppressWarnings("unchecked")
 public class HashTableSeparateChaining<K, V> implements HashTable<K, V> {
 
     private static final int DEFAULT_CAPACITY = 3;
